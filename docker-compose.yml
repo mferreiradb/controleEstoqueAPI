@@ -1,0 +1,18 @@
+version: '3.1'
+
+services:
+  db_controle_estoque:
+    image: mysql:8.0
+    container_name: db_estoque
+    ports:
+      - '3306:3306'
+    environment:
+      MYSQL_DATABASE: controle_estoque
+      MYSQL_ROOT_PASSWORD: root
+#      MYSQL_USER: root
+#      MYSQL_PASSWORD: syspesca
+    volumes:
+      - './docker/db/data:/var/lib/mysql'
+      - './docker/db/my.cnf:/etc/mysql/conf.d/my.cnf'
+      - './docker/db/sql:/docker-entrypoint-initdb.d'
+    restart: always
