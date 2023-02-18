@@ -6,3 +6,5 @@ const router = Router()
 const main = new Main()
 
 router.get('/', (req, res) => main.handle(req, res));
+
+export { router };
