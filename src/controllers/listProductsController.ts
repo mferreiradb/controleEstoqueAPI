@@ -3,10 +3,10 @@ import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
-export class ListProdutos {
+export class ListProducts {
 
     async handle(req: Request, res: Response) {
-        const result = await prisma.produtos.findMany({
+        const result = await prisma.products.findMany({
             orderBy: {
                 updated_at: "desc"
             }

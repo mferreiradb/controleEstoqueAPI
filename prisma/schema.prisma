@@ -7,13 +7,13 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Produtos {
-  id           Int      @id @default(autoincrement())
-  nome_produto String   @unique
-  valor_compra Float?
-  valor_venda  Float
-  created_at   DateTime @default(now())
-  updated_at   DateTime @updatedAt
+model Products {
+  id             Int      @id @default(autoincrement())
+  name_product   String   @unique
+  purchase_price Float?
+  sale_price     Float
+  created_at     DateTime @default(now())
+  updated_at     DateTime @updatedAt
 
-  @@map("produtos")
+  @@map("products")
 }
