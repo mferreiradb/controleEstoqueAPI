@@ -1,10 +1,10 @@
 import { Router } from "express";
-import { Main } from "../controllers/mainController";
+import { ListProdutos } from "../controllers/mainController";
 
 
 const router = Router()
-const main = new Main()
+const listProdutos = new ListProdutos()
 
-router.get('/', (req, res) => main.handle(req, res));
+router.get('/', (req, res) => listProdutos.handle(req, res));
 
 export { router };
