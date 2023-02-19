@@ -1,6 +1,9 @@
 import { Router } from "express";
-const router = Router();
+import { Users } from "../controllers/UsersController";
 
-router.get('/create', (req, res) => res.json({ msg: 'online' }));
+const router = Router();
+const user = Users.getInstance();
+
+router.post('/create', (req, res) => user.create(req, res));
 
 export { router };
