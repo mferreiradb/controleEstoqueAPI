@@ -1,5 +1,5 @@
 import express from 'express';
-import { router } from './routes/listProducts.routes';
+import { router } from './routes/Products.routes';
 const app = express();
 
 app.use(express.json());

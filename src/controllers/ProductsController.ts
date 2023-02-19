@@ -3,9 +3,9 @@ import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
-export class ListProducts {
+export class Products {
 
-    async handle(req: Request, res: Response) {
+    async list(req: Request, res: Response) {
         const result = await prisma.products.findMany({
             orderBy: {
                 updated_at: "desc"
