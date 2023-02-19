@@ -17,3 +17,13 @@ model Products {
 
   @@map("products")
 }
+
+model Users {
+  id         Int      @id @default(autoincrement())
+  login      String   @unique
+  password   String
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  @@map("users")
+}
