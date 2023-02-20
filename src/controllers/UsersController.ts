@@ -1,5 +1,10 @@
 import { PrismaClient } from "@prisma/client";
 import { Request, Response } from "express";
+import * as jwt from 'jsonwebtoken';
+import * as crypto from 'crypto';
+
+const secret = crypto.randomBytes(64).toString('hex');
+
 const prisma = new PrismaClient()
 
 export class Users {
@@ -25,6 +30,22 @@ export class Users {
         const result = await prisma.users.findFirst({
             where: {
                 login: login
+            }
+        })
+
+        if (!result) {
+            return res.status(400).json({ error: 'Usuário não encontrado!' })
+        }
+
+        if (result.password != password) {
+            return res.status(400).json({ error: 'Senha incorreta' })
+        }
+
+        jwt.sign({ id: result.id, login: result.login }, secret, { expiresIn: '24h' }, (err, token) => {
+            if (err) {
+                return res.status(400).json({ error: 'Falha interna' })
+            } else {
+                return res.status(200).json({ token })
             }
         })
     }
