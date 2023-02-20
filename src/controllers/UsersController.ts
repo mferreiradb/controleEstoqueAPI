@@ -19,6 +19,16 @@ export class Users {
         return res.json(result)
     }
 
+    async login(req: Request, res: Response) {
+        const { login, password } = req.body;
+
+        const result = await prisma.users.findFirst({
+            where: {
+                login: login
+            }
+        })
+    }
+
     public static getInstance(): Users {
         if (!Users.INSTANCE) {
             Users.INSTANCE = new Users();
