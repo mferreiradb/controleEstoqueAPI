@@ -13,7 +13,7 @@ export const auth = (req: Request, res: Response, next: NextFunction) => {
     const { authorization } = req.headers;
 
     if (!authorization) {
-        res.status(400).json({ error: 'Informe o token de acesso!' })
+        res.status(400).json({ Error: 'Informe o token de acesso!' })
     }
 
     let barrer = authorization?.split(' ') ?? []
@@ -28,7 +28,7 @@ export const auth = (req: Request, res: Response, next: NextFunction) => {
 
         next()
 
-    } catch (err) {
-        res.status(401).json(err);
+    } catch (Error) {
+        res.status(401).json(Error);
     }
 }

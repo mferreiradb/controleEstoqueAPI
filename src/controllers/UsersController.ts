@@ -14,13 +14,23 @@ export class Users {
 
     async create(req: Request, res: Response) {
         const { login, password } = req.body
+
+        const verify = await prisma.users.findFirst({
+            where: {
+                login: login
+            }
+        })
+
+        if (verify) {
+            return res.status(400).json({ Error: 'Login já em uso!' })
+        }
+
         const result = await prisma.users.create({
             data: {
                 login: login,
                 password: password
             }
         })
-        console.log(result);
         return res.json(result)
     }
 
@@ -34,16 +44,16 @@ export class Users {
         })
 
         if (!result) {
-            return res.status(400).json({ error: 'Usuário não encontrado!' })
+            return res.status(400).json({ Error: 'Usuário não encontrado!' })
         }
 
         if (result.password != password) {
-            return res.status(400).json({ error: 'Senha incorreta' })
+            return res.status(400).json({ Error: 'Senha incorreta' })
         }
 
         jwt.sign({ id: result.id, login: result.login }, secret, { expiresIn: '24h' }, (err, token) => {
             if (err) {
-                return res.status(400).json({ error: 'Falha interna' })
+                return res.status(400).json({ Error: 'Falha interna' })
             } else {
                 return res.status(200).json({ token })
             }
