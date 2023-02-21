@@ -12,9 +12,9 @@ model Products {
   name_product   String   @unique
   purchase_price Float?
   sale_price     Float
+  amount         Float?
   created_at     DateTime @default(now())
   updated_at     DateTime @updatedAt
-  amount         Float?
 
   @@map("products")
 }
