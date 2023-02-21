@@ -3,7 +3,7 @@ import { Request, Response } from "express";
 import * as jwt from 'jsonwebtoken';
 import * as crypto from 'crypto';
 
-const secret = crypto.randomBytes(64).toString('hex');
+export const secret = crypto.randomBytes(64).toString('hex');
 
 const prisma = new PrismaClient()
 
