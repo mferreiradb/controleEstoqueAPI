@@ -41,4 +41,31 @@ export class Products {
         })
         return res.json(result)
     }
+
+    async updateAmount(req: Request, res: Response) {
+        const { idProduct } = req.params;
+        const { amount } = req.body;
+
+        const id = parseInt(idProduct)
+
+        const result = await prisma.products.findFirst({
+            where: {
+                id: id
+            }
+        })
+
+        if (!result) {
+            return res.status(400).json({ Error: 'Item não encontrado!' })
+        } else {
+            await prisma.products.update({
+                where: {
+                    id: id
+                },
+                data: {
+                    amount: amount
+                }
+            })
+            return res.status(200).json({ Msg: 'Item atualizado com sucesso!', result })
+        }
+    }
 };
