@@ -25,7 +25,6 @@ export const auth = (req: Request, res: Response, next: NextFunction) => {
         const { id, login } = data as unknown as TokenPayload;
 
         req.loggedUser = { id, login }
-
         next()
 
     } catch (Error) {
