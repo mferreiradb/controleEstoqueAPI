@@ -19,7 +19,7 @@
 
 - [x] Deve ser possível realizar o Login do usuário e gerar o token JWT
 
-- [] Deve ser possível alterar os dados do usuário
+- [x] Deve ser possível alterar os dados do usuário
 
 - [] Deve ser possível excluir um usuário
 
@@ -60,6 +60,8 @@
 
 - [x] Não deve ser possível criar um usuário com um login já existente
 
-- [] Não deve ser possível alterar os dados do usuário sem que o usuário esteja autenticado
+- [x] Não deve ser possível alterar os dados do usuário sem que o usuário esteja autenticado
+
+- [x] Não deve ser possível alterar os dados do usuário se nenhuma das informações for enviadas
 
 - [] Não deve ser possível excluir um usuário sem que o usuário esteja autenticado

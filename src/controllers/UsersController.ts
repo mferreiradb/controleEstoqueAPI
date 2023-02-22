@@ -60,6 +60,48 @@ export class Users {
         })
     }
 
+    async update(req: Request, res: Response) {
+        const { idUser } = req.params;
+        const { login, password } = req.body;
+        const id: number = parseInt(idUser)
+
+        const result = await prisma.users.findFirst({
+            where: {
+                id: id
+            }
+        })
+
+        if (!result) {
+            return res.status(400).json({ Error: 'Usuário não encontrado!' })
+        } else {
+
+            if ((login == undefined || login == null) && (password != undefined && password != null) && (typeof password === 'string' && password.trim().length > 0)) {
+                const newResult = await prisma.users.update({
+                    where: {
+                        id: id
+                    },
+                    data: {
+                        password: password
+                    }
+                })
+                return res.json({ Msg: 'Alteração realizada com sucesso!', newResult })
+            } else if ((password == undefined || password == null) && (login != undefined && login != null) && (typeof login === 'string' && login.trim().length > 0)) {
+                const newResult = await prisma.users.update({
+                    where: {
+                        id: id
+                    },
+                    data: {
+                        login: login
+                    }
+                })
+                return res.json({ Msg: 'Alteração realizada com sucesso!', newResult })
+            } else {
+                return res.status(400).json({ Error: 'Falha na validação dos dados enviados!' })
+            }
+
+        }
+    }
+
     public static getInstance(): Users {
         if (!Users.INSTANCE) {
             Users.INSTANCE = new Users();
