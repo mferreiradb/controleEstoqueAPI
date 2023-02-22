@@ -118,7 +118,7 @@ export class Users {
                     id: id
                 }
             })
-            return res.json({ Msg: 'Usuário excluído com sucesso!' })
+            return res.json({ Msg: `Usuário ${newResult.login} excluído com sucesso!` })
         }
     }
 

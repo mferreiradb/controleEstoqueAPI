@@ -70,6 +70,28 @@ export class Products {
         }
     }
 
+    async delete(req: Request, res: Response) {
+        const { idProduct } = req.params;
+        const id = parseInt(idProduct);
+
+        const result = await prisma.products.findFirst({
+            where: {
+                id: id
+            }
+        })
+
+        if (!result) {
+            return res.status(400).json({ Error: 'Produto não encontrado!' })
+        } else {
+            const newResult = await prisma.products.delete({
+                where: {
+                    id: id
+                }
+            })
+            return res.json({ Msg: `Produto ${newResult.name_product} excluído com sucesso` })
+        }
+    }
+
     public static getInstance() {
         if (!Products.INSTANCE) {
             Products.INSTANCE = new Products()
