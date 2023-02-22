@@ -21,6 +21,8 @@
 
 - [] Deve ser possível alterar os dados do usuário
 
+- [] Deve ser possível excluir um usuário
+
 *Produtos*
 
 - [x] Deve ser possível criar um produto
@@ -32,6 +34,8 @@
 - [x] Deve ser possível listar todos os produtos
 
 - [] Deve ser possível pesquisar produtos por nome
+
+- [] Deve ser possível excluir um produto
 
 
 **Validações**
@@ -50,8 +54,12 @@
 
 - [x] Não deve ser possível alterar a quantidade de estoque do produto sem que o usuário esteja autenticado
 
+- [] Não deve ser possível excluir um produto sem que o usuário esteja autenticado
+
 *Usuários*
 
 - [x] Não deve ser possível criar um usuário com um login já existente
 
 - [] Não deve ser possível alterar os dados do usuário sem que o usuário esteja autenticado
+
+- [] Não deve ser possível excluir um usuário sem que o usuário esteja autenticado
