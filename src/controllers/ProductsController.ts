@@ -4,6 +4,7 @@ import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 export class Products {
+    private static INSTANCE: Products;
 
     async create(req: Request, res: Response) {
         const { name_product, purchase_price, sale_price } = req.body;
@@ -67,5 +68,12 @@ export class Products {
             })
             return res.status(200).json({ Msg: 'Item atualizado com sucesso!', newResult })
         }
+    }
+
+    public static getInstance() {
+        if (!Products.INSTANCE) {
+            Products.INSTANCE = new Products()
+        }
+        return Products.INSTANCE
     }
 };

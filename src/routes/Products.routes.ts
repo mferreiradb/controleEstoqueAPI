@@ -4,7 +4,7 @@ import { auth } from "../middlewares/JWTAuth";
 
 
 const router = Router()
-const products = new Products()
+const products = Products.getInstance()
 
 router.post('/create', auth, (req, res) => products.create(req, res));
 router.get('/', auth, (req, res) => products.list(req, res));

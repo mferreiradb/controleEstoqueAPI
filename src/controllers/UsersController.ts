@@ -10,8 +10,6 @@ const prisma = new PrismaClient()
 export class Users {
     private static INSTANCE: Users;
 
-    constructor() { }
-
     async create(req: Request, res: Response) {
         const { login, password } = req.body
 
@@ -106,7 +104,6 @@ export class Users {
         if (!Users.INSTANCE) {
             Users.INSTANCE = new Users();
         };
-
         return Users.INSTANCE;
     }
 }

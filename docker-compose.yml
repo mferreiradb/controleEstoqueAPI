@@ -10,7 +10,7 @@ services:
       MYSQL_DATABASE: controle_estoque
       MYSQL_ROOT_PASSWORD: root
 #      MYSQL_USER: root
-#      MYSQL_PASSWORD: syspesca
+#      MYSQL_PASSWORD: root
     volumes:
       - './docker/db/data:/var/lib/mysql'
       - './docker/db/my.cnf:/etc/mysql/conf.d/my.cnf'
