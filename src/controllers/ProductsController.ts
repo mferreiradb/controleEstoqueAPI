@@ -14,13 +14,13 @@ export class Products {
             where: {
                 name_product: name_product
             }
-        })
+        });
 
         if (result) {
-            res.status(400).json({ Error: 'Produto já cadastrado!' })
+            res.status(400).json({ Error: 'Produto já cadastrado!' });
         } else {
             if (amount == null || amount == undefined) {
-                amount = 0
+                amount = 0;
             }
             const newProduct = await prisma.products.create({
                 data: {
@@ -29,34 +29,34 @@ export class Products {
                     sale_price: sale_price,
                     amount: amount
                 }
-            })
-            return res.json({ msg: 'Produto cadastrado com sucesso!', newProduct })
+            });
+            return res.json({ msg: 'Produto cadastrado com sucesso!', newProduct });
         }
     }
 
     async list(req: Request, res: Response) {
         const result = await prisma.products.findMany({
             orderBy: {
-                updated_at: "desc"
+                updated_at: 'desc'
             }
-        })
-        return res.json(result)
+        });
+        return res.json(result);
     }
 
     async updateAmount(req: Request, res: Response) {
         const { idProduct } = req.params;
         const { amount } = req.body;
 
-        const id: number = parseInt(idProduct)
+        const id: number = parseInt(idProduct);
 
         const result = await prisma.products.findFirst({
             where: {
                 id: id
             }
-        })
+        });
 
         if (!result) {
-            return res.status(400).json({ Error: 'Item não encontrado!' })
+            return res.status(400).json({ Error: 'Item não encontrado!' });
         } else {
             const newResult = await prisma.products.update({
                 where: {
@@ -65,8 +65,8 @@ export class Products {
                 data: {
                     amount: amount
                 }
-            })
-            return res.status(200).json({ Msg: 'Item atualizado com sucesso!', newResult })
+            });
+            return res.status(200).json({ Msg: 'Item atualizado com sucesso!', newResult });
         }
     }
 
@@ -78,24 +78,24 @@ export class Products {
             where: {
                 id: id
             }
-        })
+        });
 
         if (!result) {
-            return res.status(400).json({ Error: 'Produto não encontrado!' })
+            return res.status(400).json({ Error: 'Produto não encontrado!' });
         } else {
             const newResult = await prisma.products.delete({
                 where: {
                     id: id
                 }
-            })
-            return res.json({ Msg: `Produto ${newResult.name_product} excluído com sucesso` })
+            });
+            return res.json({ Msg: `Produto ${newResult.name_product} excluído com sucesso` });
         }
     }
 
     public static getInstance() {
         if (!Products.INSTANCE) {
-            Products.INSTANCE = new Products()
+            Products.INSTANCE = new Products();
         }
-        return Products.INSTANCE
+        return Products.INSTANCE;
     }
-};
+}
