@@ -7,7 +7,7 @@
 ![Badge](https://img.shields.io/badge/Prisma-4.10.1-blue?style=for-the-badge&logo=ghost)
 ![Badge](https://img.shields.io/badge/Prisma_Client-^4.10.1-blue?style=for-the-badge&logo=ghost)
 ![Badge](https://img.shields.io/badge/Express-^4.18.2-lightgrey?style=for-the-badge&logo=ghost)
-![Badge](https://img.shields.io/badge/JWT-^9.0.0-%237159c1?style=for-the-badge&logo=ghost)
+![Badge](https://img.shields.io/badge/JWT-^9.0.0-ff69b4?style=for-the-badge&logo=ghost)
 ![Badge](https://img.shields.io/badge/License-ISC-brightgreen?style=for-the-badge&logo=ghost)
 ![Badge](https://img.shields.io/badge/Status-In_progress-%237159c1?style=for-the-badge&logo=ghost)
 
