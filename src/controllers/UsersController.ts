@@ -100,6 +100,28 @@ export class Users {
         }
     }
 
+    async delete(req: Request, res: Response) {
+        const { idUser } = req.params;
+        const id = parseInt(idUser);
+
+        const result = await prisma.users.findFirst({
+            where: {
+                id: id
+            }
+        })
+
+        if (!result) {
+            return res.status(400).json({ Error: 'Usuário não encontrado!' })
+        } else {
+            const newResult = await prisma.users.delete({
+                where: {
+                    id: id
+                }
+            })
+            return res.json({ Msg: 'Usuário excluído com sucesso!' })
+        }
+    }
+
     public static getInstance(): Users {
         if (!Users.INSTANCE) {
             Users.INSTANCE = new Users();
