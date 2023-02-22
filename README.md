@@ -31,14 +31,21 @@
 **Validações**
 
 *Produtos*
+
 [x] Não deve ser possível criar um produto com o nome já existente
+
 [x] Não deve ser possível criar um produto sem que o usuário esteja autenticado
+
 [] Não deve ser possível alterar todos os dados do produto sem que o usuário esteja autenticado
+
 [x] Não deve ser possível listar os produtos sem que o usuário esteja autenticado
+
 [] Não deve ser possível pesquisar produtos pelo nome sem que o usuário esteja autenticado
+
 [x] Não deve ser possível alterar a quantidade de estoque do produto sem que o usuário esteja autenticado
 
 *Usuários*
 
 [x] Não deve ser possível criar um usuário com um login já existente
+
 [] Não deve ser possível alterar os dados do usuário sem que o usuário esteja autenticado
