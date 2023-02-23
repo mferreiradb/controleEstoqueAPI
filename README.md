@@ -13,7 +13,7 @@
 
 <p align="center">O projeto tem o objetivo de solucionar as dificuldades no gerenciamento de estoque dos mais diversos tipos de produtos, de forma simples e eficaz</p>
 
-**Instalação de dependências**
+## Instalação de dependências
 
 - Typescript
 
