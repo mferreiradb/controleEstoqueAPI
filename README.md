@@ -27,7 +27,7 @@
 
 - [x] Deve ser possível criar um produto
 
-- [] Deve ser possível editar todos os dados de um produto
+- [x] Deve ser possível editar todos os dados de um produto
 
 - [x] Deve ser possível alterar a quantidade de um produto
 
@@ -46,7 +46,7 @@
 
 - [x] Não deve ser possível criar um produto sem que o usuário esteja autenticado
 
-- [] Não deve ser possível alterar todos os dados do produto sem que o usuário esteja autenticado
+- [x] Não deve ser possível alterar todos os dados do produto sem que o usuário esteja autenticado
 
 - [x] Não deve ser possível listar os produtos sem que o usuário esteja autenticado
 
