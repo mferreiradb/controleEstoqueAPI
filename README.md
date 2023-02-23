@@ -45,9 +45,35 @@
 
         npm install @prisma/client
 
-**Features**
+- JWT
 
-*Usuários*
+        npm i --save jsonwebtoken
+
+## Rotas da aplicação
+
+**Usuários**
+**Produtos**
+
+- POST /products/create/
+
+    - Criação de produtos
+        - Obrigatoriamente o envio dos dados `name_product`, `purchase_price`, `sale_price`
+        - Opcionalmente o envio do dado `amount`
+
+- GET /products/
+
+- GET /products/search/
+
+- PATCH /products/update/estoque/:idProduct/
+
+- PUT /products/update/:idProduct/
+
+- DELETE /products/delete/:idProduct/
+
+
+## Features
+
+**Usuários**
 
 - [x] Deve ser possível criar um usuário
 
@@ -57,7 +83,7 @@
 
 - [x] Deve ser possível excluir um usuário
 
-*Produtos*
+**Produtos**
 
 - [x] Deve ser possível criar um produto
 
@@ -72,9 +98,9 @@
 - [x] Deve ser possível excluir um produto
 
 
-**Validações**
+## Validações
 
-*Produtos*
+**Produtos**
 
 - [x] Não deve ser possível criar um produto com o nome já existente
 
@@ -90,7 +116,7 @@
 
 - [x] Não deve ser possível excluir um produto sem que o usuário esteja autenticado
 
-*Usuários*
+**Usuários**
 
 - [x] Não deve ser possível criar um usuário com um login já existente
 
