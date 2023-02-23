@@ -88,7 +88,7 @@
     - Retorna todos os produtos
         - Obrigatória a validação do token JWT nos headers da aplicação
 
-- GET /products/
+- GET /products/search?name
     - Retorna os itens nos quais o nome começa com o valor digitado no atributo name
         - Deve ser enviado na rota como `query param` o atributo `name` do produto
         - Obrigatória a validação do token JWT nos headers da aplicação
