@@ -89,7 +89,7 @@
         - Obrigatória a validação do token JWT nos headers da aplicação
 
 - GET /products/
-    - Retorna os itens que possuem nos quais nome começa com o valor digitado no atributo name
+    - Retorna os itens nos quais o nome começa com o valor digitado no atributo name
         - Deve ser enviado na rota como `query param` o atributo `name` do produto
         - Obrigatória a validação do token JWT nos headers da aplicação
 
