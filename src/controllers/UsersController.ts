@@ -3,6 +3,7 @@ import { Request, Response } from 'express';
 import * as jwt from 'jsonwebtoken';
 import * as crypto from 'crypto';
 import { UsersValitations } from '../middlewares/UsersValitations';
+import * as bcrypt from 'bcryptjs';
 
 export const secret = crypto.randomBytes(64).toString('hex');
 
@@ -13,6 +14,8 @@ export class Users {
 
     async create(req: Request, res: Response) {
         const { login, password } = req.body;
+        const salt = bcrypt.genSaltSync(10);
+        const hash = bcrypt.hashSync(password, salt)
 
         const verify = await prisma.users.findFirst({
             where: {
@@ -27,7 +30,7 @@ export class Users {
         const result = await prisma.users.create({
             data: {
                 login: login,
-                password: password
+                password: hash
             }
         });
         return res.json({ Msg: `Usuário ${result.login} cadastrado com sucesso!` });
@@ -46,7 +49,9 @@ export class Users {
             return res.status(400).json({ Error: 'Usuário não encontrado!' });
         }
 
-        if (result.password != password) {
+        const correctUser = bcrypt.compareSync(password, result.password)
+
+        if (!correctUser) {
             return res.status(400).json({ Error: 'Senha incorreta' });
         }
 
