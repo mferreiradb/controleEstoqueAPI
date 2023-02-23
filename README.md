@@ -1,6 +1,6 @@
 <h1 align="center">Controle de Estoque API</h1>
 
-<p align="center">Projeto backend para controle de estoque de produtos</p>
+<p align="center">Projeto backend para controle de estoque</p>
 
 ![Badge](https://img.shields.io/badge/Version-1.0.0-yellow?style=for-the-badge&logo=ghost)
 ![Badge](https://img.shields.io/badge/Typescript-^4.9.5-blue?style=for-the-badge&logo=ghost)
@@ -10,6 +10,40 @@
 ![Badge](https://img.shields.io/badge/JWT-^9.0.0-ff69b4?style=for-the-badge&logo=ghost)
 ![Badge](https://img.shields.io/badge/License-ISC-brightgreen?style=for-the-badge&logo=ghost)
 ![Badge](https://img.shields.io/badge/Status-In_progress-%237159c1?style=for-the-badge&logo=ghost)
+
+<p align="center">O projeto tem o objetivo de solucionar as dificuldades no gerenciamento de estoque dos demais tipos de produtos, de forma simples e eficaz</p>
+
+**Instalação de dependências**
+
+- Typescript
+
+        npm i -D typescript
+    
+    - Iniciar ts.config
+
+        ```
+        tsc --init
+        ```
+
+- Ts Node Dev
+
+        npm i -D ts-node-dev
+
+- Express
+
+        npm i express
+
+- Tipagem para express
+
+        npm i -D @types/express
+
+- Prisma
+
+        npm install prisma --save-dev
+
+- Prisma Client
+
+        npm install @prisma/client
 
 **Features**
 
