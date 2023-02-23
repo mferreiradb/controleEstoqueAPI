@@ -29,7 +29,7 @@ export class Users {
                 password: password
             }
         });
-        return res.json(result);
+        return res.json({ Msg: `Usuário ${result.login} cadastrado com sucesso!` });
     }
 
     async login(req: Request, res: Response) {
