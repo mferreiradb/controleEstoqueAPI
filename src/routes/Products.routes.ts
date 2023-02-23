@@ -8,6 +8,7 @@ const products = Products.getInstance();
 
 router.post('/create', auth, (req, res) => products.create(req, res));
 router.get('/', auth, (req, res) => products.list(req, res));
+router.get('/search', auth, (req, res) => products.search(req, res));
 router.patch('/update/estoque/:idProduct', auth, (req, res) => products.updateAmount(req, res));
 router.put('/update/:idProduct', auth, (req, res) => products.updateData(req, res));
 router.delete('/delete/:idProduct', auth, (req, res) => products.delete(req, res));

@@ -33,7 +33,7 @@
 
 - [x] Deve ser possível listar todos os produtos
 
-- [] Deve ser possível pesquisar produtos por nome
+- [x] Deve ser possível pesquisar produtos por nome
 
 - [x] Deve ser possível excluir um produto
 
@@ -50,7 +50,7 @@
 
 - [x] Não deve ser possível listar os produtos sem que o usuário esteja autenticado
 
-- [] Não deve ser possível pesquisar produtos pelo nome sem que o usuário esteja autenticado
+- [x] Não deve ser possível pesquisar produtos pelo nome sem que o usuário esteja autenticado
 
 - [x] Não deve ser possível alterar a quantidade de estoque do produto sem que o usuário esteja autenticado
 

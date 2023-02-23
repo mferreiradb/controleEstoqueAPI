@@ -43,6 +43,21 @@ export class Products {
         return res.json(result);
     }
 
+    async search(req: Request, res: Response) {
+        const { name } = req.query;
+        const name_product = name?.toString()
+
+        const result = await prisma.products.findMany({
+            where: {
+                name_product: {
+                    startsWith: name_product
+                }
+            }
+        })
+
+        res.json(result)
+    }
+
     async updateAmount(req: Request, res: Response) {
         const { idProduct } = req.params;
         const { amount } = req.body;
