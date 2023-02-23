@@ -70,6 +70,40 @@ export class Products {
         }
     }
 
+    async updateData(req: Request, res: Response) {
+        const { idProduct } = req.params;
+        const { name_product, purchase_price, sale_price } = req.body;
+        const id = parseInt(idProduct);
+
+        const result = await prisma.products.findFirst({
+            where: {
+                id: id
+            }
+        })
+
+        if (!result) {
+            return res.status(400).json({ Error: 'Produto não encontrado!' })
+        }
+
+        if ((name_product == undefined || purchase_price == undefined || sale_price == undefined) || (name_product == null || purchase_price == null || sale_price == null)) {
+
+            return res.status(400).json({ Error: 'Dados inválidos. Certifique-se de enviar todos os dados da forma correta!' })
+        } else {
+            const newResult = await prisma.products.update({
+                where: {
+                    id: id
+                },
+                data: {
+                    name_product: name_product,
+                    purchase_price: purchase_price,
+                    sale_price: sale_price
+                }
+            })
+
+            return res.json({ Msg: 'Produto alterado com sucesso!', newResult })
+        }
+    }
+
     async delete(req: Request, res: Response) {
         const { idProduct } = req.params;
         const id = parseInt(idProduct);
