@@ -52,23 +52,63 @@
 ## Rotas da aplicação
 
 **Usuários**
+
+- POST /create/
+    - Criação de usuário
+        - Obrigatório o envio dos dados `login` e `password` pelo body da aplicação
+            - O campo `login` é único. Logo, não será possível realizar a criação de um usuário que já possui um login existente
+
+- POST /login/
+    - Realiza o login, retornando o token `JWT` para uso nas autenticações
+        - Obrigatório o envio dos dados `login` e `password` pelo body da aplicação
+
+- PATCH /update/:idUser/
+    - Altera os dados do usuário
+        - Obrigatório o envio de ao menos um dos dados: `login` e `password` pelo body da aplicação
+            - Caso não seja passado nenhum dos dados, retorna um erro
+        - Obrigatória a validação do token JWT nos headers da aplicação
+
+- DELETE /delete/:idUser/
+    - Exclui o usuário informado nos parametros da rota
+        - Deve ser informado no parametro da rota o `id` do usuário que deve ser excluído
+        - Obrigatória a validação do token JWT nos headers da aplicação
+
+
 **Produtos**
 
 - POST /products/create/
 
     - Criação de produtos
-        - Obrigatoriamente o envio dos dados `name_product`, `purchase_price`, `sale_price`
-        - Opcionalmente o envio do dado `amount`
+        - Obrigatório o envio dos dados `name_product`, `purchase_price`, `sale_price` pelo body da aplicação
+        - Opcional o envio do dado `amount` pelo body da aplicação
+            - Caso não seja enviado, o valor de `amount` será definido como 0
+        - Obrigatória a validação do token JWT nos headers da aplicação
 
 - GET /products/
+    - Retorna todos os produtos
+        - Obrigatória a validação do token JWT nos headers da aplicação
 
-- GET /products/search/
+- GET /products/
+    - Retorna os itens que possuem nos quais nome começa com o valor digitado no atributo name
+        - Deve ser enviado na rota como `query param` o atributo `name` do produto
+        - Obrigatória a validação do token JWT nos headers da aplicação
 
-- PATCH /products/update/estoque/:idProduct/
+- PATCH /products/update/stock/:idProduct/
+    - Altera a quantidade do estoque para a quantidade definida no atributo `amount`
+        - Obrigatório o envio do dado `amount` pelo body da aplicação
+        - Obrigatória a validação do token JWT nos headers da aplicação
 
 - PUT /products/update/:idProduct/
+    - Altera os dados do produto informado nos parametros da rota
+        - Deve ser informado no parametro da rota o `id` do produto que deve ser alterado
+        - Obrigatório o envio dos dados `name_product`, `purchase_price`, `sale_price` pelo body da aplicação
+        - Obrigatória a validação do token JWT nos headers da aplicação
+
 
 - DELETE /products/delete/:idProduct/
+    - Exclui o produto informado nos parametros da rota
+        - Deve ser informado no parametro da rota o `id` do produto que deve ser excluído
+        - Obrigatória a validação do token JWT nos headers da aplicação
 
 
 ## Features
@@ -82,6 +122,8 @@
 - [x] Deve ser possível alterar os dados do usuário
 
 - [x] Deve ser possível excluir um usuário
+
+- [] Implementação de Hash de senha
 
 **Produtos**
 

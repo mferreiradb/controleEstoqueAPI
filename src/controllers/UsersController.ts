@@ -82,7 +82,7 @@ export class Users {
                         password: password
                     }
                 });
-                return res.json({ Msg: 'Alteração realizada com sucesso!', newResult });
+                return res.json({ Msg: `Alteração no usuário ${newResult.login} realizada com sucesso!` });
             } else if ((password == undefined || password == null) && (login != undefined && login != null) && (typeof login === 'string' && login.trim().length > 0)) {
                 const newResult = await prisma.users.update({
                     where: {
@@ -92,7 +92,7 @@ export class Users {
                         login: login
                     }
                 });
-                return res.json({ Msg: 'Alteração realizada com sucesso!', newResult });
+                return res.json({ Msg: `Alteração no usuário ${newResult.login} realizada com sucesso!` });
             } else {
                 return res.status(400).json({ Error: 'Falha na validação dos dados enviados!' });
             }
