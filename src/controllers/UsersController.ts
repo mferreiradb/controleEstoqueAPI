@@ -2,6 +2,7 @@ import { PrismaClient } from '@prisma/client';
 import { Request, Response } from 'express';
 import * as jwt from 'jsonwebtoken';
 import * as crypto from 'crypto';
+import { UsersValitations } from '../middlewares/UsersValitations';
 
 export const secret = crypto.randomBytes(64).toString('hex');
 
@@ -73,7 +74,7 @@ export class Users {
             return res.status(400).json({ Error: 'Usuário não encontrado!' });
         } else {
 
-            if ((login == undefined || login == null) && (password != undefined && password != null) && (typeof password === 'string' && password.trim().length > 0)) {
+            if (UsersValitations.loginValidade(login, password)) {
                 const newResult = await prisma.users.update({
                     where: {
                         id: id
@@ -83,7 +84,8 @@ export class Users {
                     }
                 });
                 return res.json({ Msg: `Alteração no usuário ${newResult.login} realizada com sucesso!` });
-            } else if ((password == undefined || password == null) && (login != undefined && login != null) && (typeof login === 'string' && login.trim().length > 0)) {
+
+            } else if (UsersValitations.passwordValidate(password, login)) {
                 const newResult = await prisma.users.update({
                     where: {
                         id: id

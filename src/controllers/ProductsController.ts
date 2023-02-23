@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import { PrismaClient } from '@prisma/client';
+import { ProductsValitations } from '../middlewares/ProductsValitations';
 
 const prisma = new PrismaClient();
 
@@ -100,9 +101,10 @@ export class Products {
             return res.status(400).json({ Error: 'Produto não encontrado!' })
         }
 
-        if ((name_product == undefined || purchase_price == undefined || sale_price == undefined) || (name_product == null || purchase_price == null || sale_price == null)) {
+        if (ProductsValitations.dataValidate(name_product, purchase_price, sale_price)) {
 
             return res.status(400).json({ Error: 'Dados inválidos. Certifique-se de enviar todos os dados da forma correta!' })
+
         } else {
             const newResult = await prisma.products.update({
                 where: {
