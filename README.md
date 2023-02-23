@@ -11,7 +11,7 @@
 ![Badge](https://img.shields.io/badge/License-ISC-brightgreen?style=for-the-badge&logo=ghost)
 ![Badge](https://img.shields.io/badge/Status-In_progress-%237159c1?style=for-the-badge&logo=ghost)
 
-<p align="center">O projeto tem o objetivo de solucionar as dificuldades no gerenciamento de estoque dos demais tipos de produtos, de forma simples e eficaz</p>
+<p align="center">O projeto tem o objetivo de solucionar as dificuldades no gerenciamento de estoque dos mais diversos tipos de produtos, de forma simples e eficaz</p>
 
 **Instalação de dependências**
 
