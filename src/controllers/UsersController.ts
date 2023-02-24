@@ -1,11 +1,10 @@
 import { PrismaClient } from '@prisma/client';
 import { Request, Response } from 'express';
 import * as jwt from 'jsonwebtoken';
-import * as crypto from 'crypto';
 import { UsersValitations } from '../middlewares/UsersValitations';
 import * as bcrypt from 'bcryptjs';
 
-export const secret = crypto.randomBytes(64).toString('hex');
+export const secret = 'alskdnjkjasbdhjkasvbdkjasvdhjkavsjkdvasdvasjbdkasbn'
 
 const prisma = new PrismaClient();
 
