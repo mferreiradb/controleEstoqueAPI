@@ -2,7 +2,7 @@
 
 <p align="center">Projeto backend para controle de estoque</p>
 
-![Badge](https://img.shields.io/badge/Version-1.0.0-yellow?style=for-the-badge&logo=ghost)
+![Badge](https://img.shields.io/badge/Version-1.2.0-yellow?style=for-the-badge&logo=ghost)
 ![Badge](https://img.shields.io/badge/Typescript-^4.9.5-blue?style=for-the-badge&logo=ghost)
 ![Badge](https://img.shields.io/badge/Prisma-4.10.1-blue?style=for-the-badge&logo=ghost)
 ![Badge](https://img.shields.io/badge/Prisma_Client-^4.10.1-blue?style=for-the-badge&logo=ghost)
@@ -123,7 +123,7 @@
 
 - [x] Deve ser possível excluir um usuário
 
-- [] Implementação de Hash de senha
+- [x] Implementação de Hash de senha
 
 **Produtos**
 
