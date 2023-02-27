@@ -76,7 +76,7 @@
 
 **Produtos**
 
-- POST /products/create/
+- POST /products/
 
     - Criação de produtos
         - Obrigatório o envio dos dados `name_product`, `purchase_price`, `sale_price` pelo body da aplicação
@@ -93,19 +93,19 @@
         - Deve ser enviado na rota como `query param` o atributo `name` do produto
         - Obrigatória a validação do token JWT nos headers da aplicação
 
-- PATCH /products/update/stock/:idProduct/
+- PATCH /products/stock/:idProduct/
     - Altera a quantidade do estoque para a quantidade definida no atributo `amount`
         - Obrigatório o envio do dado `amount` pelo body da aplicação
         - Obrigatória a validação do token JWT nos headers da aplicação
 
-- PUT /products/update/:idProduct/
+- PUT /products/:idProduct/
     - Altera os dados do produto informado nos parametros da rota
         - Deve ser informado no parametro da rota o `id` do produto que deve ser alterado
         - Obrigatório o envio dos dados `name_product`, `purchase_price`, `sale_price` pelo body da aplicação
         - Obrigatória a validação do token JWT nos headers da aplicação
 
 
-- DELETE /products/delete/:idProduct/
+- DELETE /products/:idProduct/
     - Exclui o produto informado nos parametros da rota
         - Deve ser informado no parametro da rota o `id` do produto que deve ser excluído
         - Obrigatória a validação do token JWT nos headers da aplicação
