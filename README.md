@@ -53,22 +53,22 @@
 
 **Usuários**
 
-- POST /create/
+- POST /users
     - Criação de usuário
         - Obrigatório o envio dos dados `login` e `password` pelo body da aplicação
             - O campo `login` é único. Logo, não será possível realizar a criação de um usuário que já possui um login existente
 
-- POST /login/
+- POST /users/login/
     - Realiza o login, retornando o token `JWT` para uso nas autenticações
         - Obrigatório o envio dos dados `login` e `password` pelo body da aplicação
 
-- PATCH /update/:idUser/
+- PATCH /users/:idUser/
     - Altera os dados do usuário
         - Obrigatório o envio de ao menos um dos dados: `login` e `password` pelo body da aplicação
             - Caso não seja passado nenhum dos dados, retorna um erro
         - Obrigatória a validação do token JWT nos headers da aplicação
 
-- DELETE /delete/:idUser/
+- DELETE /users/:idUser/
     - Exclui o usuário informado nos parametros da rota
         - Deve ser informado no parametro da rota o `id` do usuário que deve ser excluído
         - Obrigatória a validação do token JWT nos headers da aplicação
