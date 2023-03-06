@@ -1,6 +1,6 @@
 
 
-export class UsersValitations {
+export class UsersValidations {
 
     public static loginValidade(login: String, password: string): boolean {
         return (login == undefined || login == null) && (password != undefined && password != null) && (typeof password === 'string' && password.trim().length > 0)
