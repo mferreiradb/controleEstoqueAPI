@@ -6,7 +6,7 @@ import { auth } from '../middlewares/JWTAuth';
 const router = Router();
 const products = Products.getInstance();
 
-router.post('/', auth, (req, res) => products.create(req, res));
+router.post('/', (req, res) => products.create(req, res));
 router.get('/', auth, (req, res) => products.list(req, res));
 router.get('/search', auth, (req, res) => products.search(req, res));
 router.patch('/stock/:idProduct', auth, (req, res) => products.updateAmount(req, res));

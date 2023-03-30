@@ -31,7 +31,7 @@ export class Products {
                     amount: amount
                 }
             });
-            return res.json({ msg: 'Produto cadastrado com sucesso!', newProduct });
+            return res.status(201).json({ msg: 'Produto cadastrado com sucesso!', newProduct });
         }
     }
 
